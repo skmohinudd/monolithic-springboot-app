@@ -27,8 +27,13 @@ public class SecurityConfiguration {
          http.csrf().disable()
                  .authorizeHttpRequests()
 
-                 .requestMatchers("/**")
-                 .permitAll()
+                   .requestMatchers(
+        "/actuator/health",
+        "/actuator/health/**"
+)
+.permitAll()
+.requestMatchers("/**")
+.permitAll()
 //                .requestMatchers("/product/**").hasRole(ADMIN.name())
 //                 .requestMatchers("/cart/**").hasRole(ADMIN.name())
                 .anyRequest()
