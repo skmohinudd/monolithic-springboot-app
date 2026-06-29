@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Footer } from "../Component/Footer";
 import { Header } from "../Component/Header";
 import { Items } from "../Component/CartComponent/Items";
+import { API_BASE_URL } from "../config";
 
 export const Cart = () => {
   useEffect(() => { window.scrollTo(0, 0) }, []);
@@ -17,7 +18,7 @@ export const Cart = () => {
       const fatchCart = async () => {
         // get cart item
         console.log(token);
-        const res = await fetch("http://localhost:9090/cart/1", {headers: {
+        const res = await fetch(`${API_BASE_URL}/cart/1`, {headers: {
             "Content-Type": "application/json",
             "Authorization": "Bearer "+token
           },
@@ -35,7 +36,7 @@ export const Cart = () => {
       
 
       const createOrder = async (e) => {
-        const res = await fetch(`http://localhost:9090/payment/${totalAmount}`, {
+       const res = await fetch(`${API_BASE_URL}/payment/${totalAmount}`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",

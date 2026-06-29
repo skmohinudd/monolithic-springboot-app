@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import axiosFetch from "../../Helper/Axios";
+import { API_BASE_URL } from "../../config";
 
 export const Items = ({ prop ,setLoading}) => {
   const [quantity, setQuantity] = useState(prop.quantity);
@@ -25,7 +26,7 @@ export const Items = ({ prop ,setLoading}) => {
   const updateQuantity = async (q) => {
  
     const res = await fetch(
-      `http://localhost:9090/cart/addproduct`,
+      `${API_BASE_URL}/cart/addproduct`,
       {
         method: "POST",
         headers: {
@@ -68,7 +69,7 @@ export const Items = ({ prop ,setLoading}) => {
   const handleRemove = async () =>{
     //call delete api without body
     const res = await  fetch(
-      `http://localhost:9090/cart/product/${prop.products.productid}`,
+      `${API_BASE_URL}/cart/product/${prop.products.productid}`,
       {
         method: "DELETE",
         headers: {

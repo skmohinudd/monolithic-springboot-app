@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
+import { API_BASE_URL } from "../../config";
 
 export const ProductCard = (props) => {
   const navigate = useNavigate();
@@ -27,7 +28,7 @@ export const ProductCard = (props) => {
     if(sessionStorage.getItem("token")===null){
       navigate("/login");
     }
-    const res = await fetch("http://localhost:9090/cart/addproduct", {
+    const res = await fetch(`${API_BASE_URL}/cart/addproduct`,  {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
