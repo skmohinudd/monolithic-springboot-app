@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Header } from "../Component/Header";
 import { toast } from 'react-toastify';
+import { API_BASE_URL } from "../config";
 
 export const Singup = () => {
   const [user, setUser] = useState({
@@ -39,7 +40,7 @@ export const Singup = () => {
     window.location.href = "/login";
     e.preventDefault();
     if (user.password === user.confirmPassword) {
-      const res = await fetch("http://localhost:9090/auth/singup", {
+    const res = await fetch(`${API_BASE_URL}/auth/singup`,  {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

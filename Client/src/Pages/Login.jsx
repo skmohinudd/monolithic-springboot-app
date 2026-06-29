@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Footer } from '../Component/Footer'
 import { Header } from '../Component/Header'
 import { toast } from 'react-toastify';
+import { API_BASE_URL } from "../config";
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -41,7 +42,7 @@ export const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    const res = await fetch("http://localhost:9090/auth/singin", {
+  const res = await fetch(`${API_BASE_URL}/auth/singin`,  {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

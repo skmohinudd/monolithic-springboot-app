@@ -3,6 +3,7 @@ import { Header } from '../Component/Header'
 import { Footer } from '../Component/Footer'
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { API_BASE_URL } from "../config";
 
 export const ProductDetails = () => {
   
@@ -40,7 +41,7 @@ export const ProductDetails = () => {
   const handleCart = async () => {
 console.log(quantity);
     const res = await fetch(
-      `http://localhost:9090/cart/addproduct`,
+      `${API_BASE_URL}/cart/addproduct`,
       {
         method: "POST",
         headers: {
@@ -65,7 +66,7 @@ console.log(quantity);
     window.scrollTo(0, 0) 
 
     const fatchData = async () => {
-        const response = await fetch(`http://localhost:9090/product/${id}`, {
+        const response = await fetch(`${API_BASE_URL}/product/${id}`,  {
           headers: {
           "Authorization": "Bearer "+token
           },

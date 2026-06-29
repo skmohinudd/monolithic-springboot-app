@@ -7,7 +7,7 @@ WORKDIR /app
 # Copy JAR file
 COPY target/organica-0.0.1-SNAPSHOT.jar myapp.jar
 
-# Expose port 8080
+# Expose port 9090
 EXPOSE 9090
 
 # Start the Java Spring Boot application
